@@ -15,11 +15,34 @@ const generateTable = () => {
     }
     if(rowsNumber>0 && columnsNumber>0){
         tableExists = true
+    } else {
+        Swal.fire({
+            icon: 'info',
+            title: 'Oops...',
+            text: 'You forgot ot enter values for row or columns!',
+            width: '500px',
+            color: '#212121',
+            iconColor: '#F3A712',
+            customClass: {
+                confirmButton: 'sa-confirm-btn'
+            }
+        })
     }
 }
 
 const ExportToExcel = (type, fn, dl) => {
     if(!tableExists){
+        Swal.fire({
+            icon: 'info',
+            title: 'Oops...',
+            text: 'There is no tables to export!',
+            width: '500px',
+            color: '#212121',
+            iconColor: '#F3A712',
+            customClass: {
+                confirmButton: 'sa-confirm-btn'
+            }
+        })
         return
     }
     var elt = table
